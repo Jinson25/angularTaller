@@ -6,7 +6,6 @@ import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
-  //rutas protegidas
   {
     path: 'dashboard', component: PagesComponent,
     children: [
@@ -16,8 +15,7 @@ const routes: Routes = [
       { path:'', redirectTo:'/dashboard', pathMatch:'full'},
     ]
   },
-  //{path:'**', component: NoFoundPageComponent},
-];
+]; //rutas hijas
 
 @NgModule({
   declarations: [],

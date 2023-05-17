@@ -9,7 +9,7 @@ const routes:Routes = [
   {path:'', redirectTo:'/dashboard', pathMatch:'full'},
   {path:'**', component: NoFoundPageComponent},
 ];
-
+//rutas principal
 @NgModule({
   declarations: [],
   imports: [
