@@ -50,19 +50,3 @@
     </tbody>
   </table>
 </div>
-<div class="card">
-  <div class="card-header">
-    Producto
-  </div>
-  <div class="card-body">
-    <div *ngIf="showUpdateForm">
-      <form (ngSubmit)="updateProduct()">
-        <!-- Contenido del formulario de actualización aquí -->
-      </form>
-    </div>
-    <div *ngIf="!showUpdateForm">
-      <!-- Contenido que se muestra cuando el formulario no está visible -->
-      <button class="btn btn-primary" (click)="showUpdateForm = true">Mostrar formulario de actualización</button>
-    </div>
-  </div>
-</div>
