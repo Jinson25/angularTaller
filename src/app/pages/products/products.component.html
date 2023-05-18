@@ -1,27 +1,68 @@
-<p>products works!</p>
 <h1>JINSON MEDINA</h1>
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="updateProduct()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Producto</label>
+        <input type="text" id="title" [(ngModel)]="selectedProduct.title" name="title" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Precio</label>
+        <input type="number" id="price" [(ngModel)]="selectedProduct.price" name="price" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea id="description" [(ngModel)]="selectedProduct.description" name="description" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+  </div>
+</div>
+<hr>
 <div class="table-responsive">
-    <table class="table table-primary border:1px">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripcion</th>
-                <th>Imagen</th>
-                <th>Categoria</th>
-                <td>Acciones</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class=""  *ngFor="let product of products">
-                <td> {{product.title}} </td>
-                <td> {{product.price}} </td>
-                <td> {{product.description}} </td>
-                <td><img src="{{product.images}} " alt="" width="200px" height="200px" > </td>
-                <td> {{product.category}} </td>
-                <td><a href="#" class="btn btn-warning" (click)="editProduct">Editar</a></td>
-                <td><a href="" class="btn btn-danger" (click)="deleteProduct(product.id)">Eliminar</a></td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="" *ngFor="let product of products">
+        <td>{{ product.title }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <img src="{{ product.images[0] }}" alt="" width="200px" height="200px">
+        </td>
+        <td>
+          <button class="btn btn-warning" (click)="editProduct(product)">Editar</button>
+        </td>
+        <td>
+          <button href="" class="btn btn-danger" (click)="deleteProduct(product.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="card">
+  <div class="card-header">
+    Producto
+  </div>
+  <div class="card-body">
+    <div *ngIf="showUpdateForm">
+      <form (ngSubmit)="updateProduct()">
+        <!-- Contenido del formulario de actualización aquí -->
+      </form>
+    </div>
+    <div *ngIf="!showUpdateForm">
+      <!-- Contenido que se muestra cuando el formulario no está visible -->
+      <button class="btn btn-primary" (click)="showUpdateForm = true">Mostrar formulario de actualización</button>
+    </div>
+  </div>
 </div>
