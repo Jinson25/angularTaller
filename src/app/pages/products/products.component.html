@@ -20,13 +20,12 @@
 </div>
 <hr>
 <div class="table-responsive">
-  <table class="table table-primary">
+  <table class="table table-warning">
     <thead>
       <tr>
         <th scope="col">Producto</th>
         <th scope="col">Precio</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Categoría</th>
         <th scope="col">Imagen</th>
         <th>Acciones</th>
       </tr>
@@ -36,9 +35,8 @@
         <td>{{ product.title }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.category }}</td>
         <td>
-          <img src="{{ product.images[0] }}" alt="" width="200px" height="200px">
+          <img src="{{ product.images[0] }}" alt="" width="50px" height="50px">
         </td>
         <td>
           <button class="btn btn-warning" (click)="editProduct(product)">Editar</button>
